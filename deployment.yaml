@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: kusumbu-deployment
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: kusumbu
+
+  template:
+    metadata:
+      labels:
+        app: kusumbu
+
+    spec:
+      containers:
+      - name: kusumbu-app
+        image: praveenkumarsss/kusumbu-app:v1
+        ports:
+        - containerPort: 8080
